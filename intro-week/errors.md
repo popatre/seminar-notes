@@ -127,6 +127,8 @@ console.log(myName);
 This is a soft introduction to scope - we only have access to that variable inside the `if` statement's code block. So even though the variable is 'valid'/exists in some part of the code, we can't access it from our console.log outside the `if`.
 
 
+
+
 ### Extras
 
 #### Example 9: Reference
@@ -148,6 +150,8 @@ tutor.push("R")
 ```
 
 #### Example 11: type
+
+Bonus - why is there not a splice method?
 
 ```js
 const tutor = 'Dave';
