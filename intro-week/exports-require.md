@@ -124,16 +124,16 @@ console.log(mystery.name2); // izzi
 ```js
 // file1.js
 
-function sayHello() {
-  console.log('hello');
+function turnOffLight() {
+  console.log('light is off');
 };
 
-module.exports = sayHello;
+module.exports = turnOffLight;
 
 // file2.js
 
-const greeting = require('./file1.js');
-console.log(greeting); // logs [Function sayHello]
+const lightSwitch = require('./file1.js');
+console.log(lightSwitch); // logs [Function lightSwitch]
 
 // To get the 'hello' console.log, we have to _use_ the required in function - show this too
 ```
@@ -145,15 +145,15 @@ console.log(greeting); // logs [Function sayHello]
 ```js
 // file1.js
 
-const sayHello = function () {
-  console.log('hello');
+function turnOffLight() {
+  console.log('light is off');
 };
 
-sayGoodbye = function () {
-  console.log('goodbye');
+function turnOnLight() {
+  console.log('light is now on');
 };
 
-module.exports = { sayHello: sayHello, sayGoodbye: sayGoodbye };
+module.exports = { turnOnLight: turnOnLight, turnOffLight: turnOffLight };
 
 // file2.js
 
