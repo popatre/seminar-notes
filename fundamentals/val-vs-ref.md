@@ -41,7 +41,7 @@ An example of the testing order would look like:
 Build up the tests with the students and discuss the tests. Getting weaker students to do the earlier stages now they've had some practice TDD is a nice confidence builder for them.
 
 ```js
-test("returns an empty array when there are no members", () => {
+test("returns an empty array when passed an array with no members", () => {
     const input = [];
     expect(cancelMemberships(input)).toEqual([]);
 });
