@@ -32,8 +32,8 @@ An example of the testing order would look like:
 
 -   Empty array
 -   New array
--   One order already salad
--   One order not salad
+-   One membership already cancelled
+-   One membership not yet cancelled
 -   Multiple
 -   Testing for mutation!!
 -   (optional) new objects in the array
