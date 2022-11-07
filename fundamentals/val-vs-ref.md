@@ -78,7 +78,7 @@ function cancelMemberships(members) {
 
 ```js
 // putting expected into a variable for neatness
-test("changes a single order to salad", () => {
+test("changes a single member to cancelled", () => {
     const input = [{ name: "Paul", status: "active" }];
     const expected = [{ name: "Paul", status: "cancelled" }];
     expect(cancelMemberships(input)).toEqual(expected);
