@@ -147,9 +147,9 @@ test("doesn't mutate the original input", () => {
 function cancelMemberships(members) {
     return members.map((member) => {
         // copy the objects to new references before mutating
-        const newOrder = { ...member };
-        newOrder.status = "cancelled";
-        return newOrder;
+        const newMember = { ...member };
+        newMember.status = "cancelled";
+        return newMember;
     });
 }
 ```
