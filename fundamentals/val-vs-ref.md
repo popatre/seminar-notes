@@ -30,11 +30,11 @@ a test confirming there is no mutation to the input
 
 An example of the testing order would look like:
 
--   Empty array
+-   Empty array > returns empty array
 -   New array
--   One membership already cancelled
--   One membership not yet cancelled
--   Multiple
+-   Array with one object -> status already cancelled
+-   Array with one object -> status currently active
+-   Array with multiple objects to be cancelled
 -   Testing for mutation!!
 -   (optional) new objects in the array
 
