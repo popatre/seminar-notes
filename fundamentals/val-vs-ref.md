@@ -121,6 +121,7 @@ function cancelMemberships(members) {
     return members.map((member) => {
         member.status = "cancelled";
         return member;
+        // this is the same references, and the current ref test doesnt deal with it - poss show adding another expect statement/data set
     });
 }
 ```
