@@ -1,0 +1,23 @@
+[
+    {
+        authorId: 1,
+        fullName: "Dan Brown",
+        funFact: "Favourite colour is not brown",
+    },
+    {
+        authorId: 2,
+        fullName: "Antoine de Saint-Exupéry",
+        funFact:
+            "He was a successful commercial pilot before World War II, working airmail routes in Europe, Africa, and South America. ",
+    },
+    {
+        authorId: 3,
+        fullName: "Douglas Adams",
+        funFact: "He made two appearances in Monty Python’s Flying Circus",
+    },
+    {
+        authorId: 4,
+        fullName: "Stephen Hawking",
+        funFact: "Doctors told him he wouldn’t live past his early 20s",
+    },
+];

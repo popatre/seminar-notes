@@ -1,0 +1,22 @@
+[
+    {
+        "authorId": 5,
+        "fullName": "Eric Carle",
+        "funFact": "When he was a young boy, Carle had a dream that he would build a bridge from Germany to America."
+    },
+    {
+        "authorId": 6,
+        "fullName": "J. D. Salinger",
+        "funFact": "The Catcher in the Rye was the only novel that J.D. Salinger published during his lifetime, not bad for a first try!"
+    },
+    {
+        "authorId": 7,
+        "fullName": "Beatrix Potter",
+        "funFact": "Between 1881 and 1897 Potter kept a journal in which she jotted down her private thoughts in a secret code . This code was so fiendishly difficult it was not cracked and translated until 1958."
+    },
+    {
+        "authorId": 8,
+        "fullName": "C. S. Lewis",
+        "funFact": "Lewis set up a charitable trust to give away whatever money he received from his books."
+    }
+]
