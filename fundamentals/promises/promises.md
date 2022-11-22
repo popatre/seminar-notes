@@ -11,10 +11,16 @@ This guidance uses the example of using `fs/promises` to read a directory and lo
 ```js
 const fs = require("fs/promises");
 
-fs.readdir(`${__dirname}/data`).then((fileNames) => {
-    const jsFiles = fileNames.filter((fileName) => fileName.endsWith(".js"));
-    console.log(jsFiles);
-});
+fs.readdir(`${__dirname}/data`)
+    .then((fileNames) => {
+        const jsonFiles = fileNames.filter((file) => file.endsWith(".json"));
+        const firstFileName = jsonFiles[0];
+
+        return fs.readFile(`${__dirname}/data/${firstFileName}`, "utf8");
+    })
+    .then((fileData) => {
+        return fileData;
+    });
 ```
 
 ## Introduce the promise library
@@ -69,6 +75,25 @@ fs.readdir(`${__dirname}/data`).then((fileNames) => {
 });
 ```
 
+## Performing another async function
+
+How to read the first file
+
+-   point out nesting working - but issue with catch
+
+```js
+fs.readdir(`${__dirname}/data`)
+    .then((fileNames) => {
+        const jsonFiles = fileNames.filter((file) => file.endsWith(".json"));
+        const firstFileName = jsonFiles[0];
+
+        return fs.readFile(`${__dirname}/data/${firstFileName}`, "utf8");
+    })
+    .then((fileData) => {
+        return fileData;
+    });
+```
+
 ## functions that return promises
 
 The logic of reading the directory works perfectly well however we will frequently want to write functions to perform these operations.
@@ -76,16 +101,22 @@ The logic of reading the directory works perfectly well however we will frequent
 Refactor the example into a function that will do the same logic as above. Note that this function will need to give back the data. We have 2 async patterns available to us, invoke a callback or return a promise.
 
 ```js
-function listJSFiles() {
-    return fs.readdir(`${__dirname}/data`).then((fileNames) => {
-        const jsFiles = fileNames.filter((fileName) =>
-            fileName.endsWith(".js")
-        );
-        console.log(jsFiles);
-    });
+function listJsonFiles() {
+    fs.readdir(`${__dirname}/data`)
+        .then((fileNames) => {
+            const jsonFiles = fileNames.filter((file) =>
+                file.endsWith(".json")
+            );
+            const firstFileName = jsonFiles[0];
+
+            return fs.readFile(`${__dirname}/data/${firstFileName}`, "utf8");
+        })
+        .then((fileData) => {
+            return fileData;
+        });
 }
 
-console.log(listJSFiles()); // Promise { pending }
+console.log(listJsonFiles()); // Promise { pending }
 ```
 
 Note that here we are returning the whole promise chain. `fs.readdir` + `.then`. We must return this promise so that we can access the resolution value.
@@ -102,7 +133,7 @@ function listJSFiles() {
     });
 }
 
-listJSFiles().then((result) => {
+listJsonFiles().then((result) => {
     console.log(result); // undefined
 });
 ```
@@ -125,5 +156,3 @@ listJSFiles().then((result) => {
 ```
 
 We could customise this further using parameters for the dirPath to make it more flexible, feel free to demo this if the group would benefit from it.
-
-// refactor tomorrow
