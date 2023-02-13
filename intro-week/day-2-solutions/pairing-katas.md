@@ -49,3 +49,19 @@ const letters = str.split("");
   return !isFound;
 
 ```
+
+OR
+
+```
+ // This function should take a string as its argument and return true if each character appears only once and false otherwise
+    for (let i = 0; i < str.length; i++) {
+        const restOfString = str.slice(i + 1);
+
+        for (let j = 0; j < restOfString.length; j++) {
+            if (restOfString[j] === str[i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+```
