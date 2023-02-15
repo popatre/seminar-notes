@@ -4,18 +4,6 @@
 
 day 3 - problem solving - paired - advanced - 2.js
 
-// Find the intervals between the numbers
-
-// translate interval into dots
-
-// add to string or add to new array?
-
-// find next interval
-
-// translate in hashes
-
-// add to string
-
 ```
 function encodeTimes(times) {
   const fullHourInMinutes = 60;
@@ -65,4 +53,27 @@ function encodeTimes(times) {
   return sleepCharacters;
 }
 
+```
+
+OR
+
+```
+function encodeTimes(times) {
+  let sleepChars = "";
+  let index = 1;
+  let isDots = true;
+  for (let i = 0; i < 60; i++) {
+    const eventTime = times[index];
+    if (i === eventTime) {
+      isDots = !isDots;
+      index++;
+    }
+    if (isDots) {
+      sleepChars += ".";
+    } else {
+      sleepChars += "#";
+    }
+  }
+  return sleepChars;
+}
 ```
