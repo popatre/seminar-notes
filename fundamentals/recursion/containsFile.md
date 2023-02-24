@@ -1,25 +1,25 @@
 ```
-const containsFile = (folder, requestedFile) => {
+function containsFile(folder, requestedFile) {
   // BASE CASE - if we find the searchTerm straight away,
   // no need to keep checking - return true
-  if (item.hasOwnProperty(searchTerm)) return true;
+    if (folder.hasOwnProperty(requestedFile)) return true;
 
-  // If the item is an object, it could contain the search term
-  if (typeof item === 'object') {
-    // Loop over the object, to check for the key
-
-    for (const fileName in folder) {
+    for (const title in folder) {
+      // If the item is an object, it could contain the search term
+        if (typeof folder[title] === "object") {
+            const newFolderFound = folder[title];
 
       // RECURSIVE CASE - check for the fileName in all of the
       // items with a recursive call - if we find an item
       // no need to keep checking - return true
 
-      if (containsKey(folder[fileName], searchTerm)) return true;
+            return containsFile(newFolderFound, "catPic");
+        }
     }
-  }
-  // BASE CASE - if no key is found, return false
-  return false;
-};
+ // BASE CASE - if no key is found, return false
+    return false;
+}
+
 ```
 
 ```
@@ -30,15 +30,15 @@ describe('containsFile', () => {
   });
   it('returns false when passed an object, without specified key', () => {
     const input = { dogPic: 'a photo of a dog' };
-    expect(containsFile(input, 'specialK')).toBe(false);
+    expect(containsFile(input, 'catPic')).toBe(false);
   });
   it('returns true when passed an object, with specified key nested', () => {
     const input = { dogPic: "a photo of a dog", cats: { otherCat: 'a photo of a different cat', catPic: 'a photo of a cat' } };
-    expect(containsFile(input, 'specialKey')).toBe(true);
+    expect(containsFile(input, 'catPic')).toBe(true);
   });
   it('returns false when passed a deeply nested object that does not contain specified key', () => {
     const input = { dogs: { dogPic: 'a photo of a dog' } };
-    expect(containsFile(input, 'specialKey')).toBe(false);
+    expect(containsFile(input, 'catPic')).toBe(false);
   });
 });
 ```

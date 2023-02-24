@@ -8,7 +8,8 @@ const searchFolder = {
     secrets: 'contents...',
     notSecrets:'not secret stuff...'
 }
-containsFile(searchFolder, secrets) // returns true
+containsFile(searchFolder, 'secrets') // returns true
+containsFile(searchFolder, 'notAFile') // returns false
 */
 
 const containsFile = (folder, requestedFile) => {};
