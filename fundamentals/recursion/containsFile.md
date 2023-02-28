@@ -13,7 +13,7 @@ function containsFile(folder, requestedFile) {
       // items with a recursive call - if we find an item
       // no need to keep checking - return true
 
-            return containsFile(newFolderFound, "catPic");
+            if(containsFile(newFolderFound, "catPic")) return true
         }
     }
  // BASE CASE - if no key is found, return false
