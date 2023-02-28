@@ -5,7 +5,7 @@ The file name will be represented by the object properties/keys
 
 e.g.
 const searchFolder = {
-    secrets: 'contents...',
+    anotherFolder: {secrets:"content...", file2:"..."}
     notSecrets:'not secret stuff...'
 }
 containsFile(searchFolder, 'secrets') // returns true
