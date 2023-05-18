@@ -2,7 +2,7 @@
 
 ## Lunchtime
 
-### paired - section 2- challenges - Q8 || Q9
+### paired - section 5- advanced - Q8 || Q9
 
 ```
 function containsNoRepeats(str) {
