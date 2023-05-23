@@ -35,6 +35,7 @@ An example of the testing order would look like:
 -   Array with one object -> status already cancelled
 -   Array with one object -> status currently active
 -   Array with multiple objects to be cancelled
+-   Array with mixed member statuses (some cancelled, some not)
 -   Testing for mutation!!
 -   (optional) new objects in the array
 
@@ -72,7 +73,7 @@ test("returns unchanged object when passed single member already cancelled", () 
 });
 
 function cancelMemberships(members) {
-    return [members[0]];
+    return [...members];
 }
 ```
 
@@ -118,13 +119,20 @@ test("changes multiple members to cancelled", () => {
 });
 
 function cancelMemberships(members) {
-    return members.map((member) => {
-        member.status = "cancelled";
-        return member;
+    for(let i = 0; i < members.length; i++){
+        members[i].status = "cancelled";
+    }
+    return [...members];
+
+    // return members.map((member) => {
+    //     member.status = "cancelled";
+    //     return member;
         // this is the same references, and the current ref test doesnt deal with it - poss show adding another expect statement/data set
     });
 }
 ```
+
+// **mixed array**
 
 The test for mutation is one that students will traditionally struggle to come up with themselves. A helpful way to think about tests like this is that the test is simulating real world use of the function. So we setup a scenario (arrange), use the function we want to test (act) and then check that what we wanted happened (assert).
 
