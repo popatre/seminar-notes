@@ -1,5 +1,7 @@
 # Supertest - Doing a POST
 
+Starting repo - https://github.com/popatre/supertest-sem
+
 SETUP - https://github.com/popatre/be-supertest-sem/tree/seminar
 
 ### 1. Using `supertest` for POST
