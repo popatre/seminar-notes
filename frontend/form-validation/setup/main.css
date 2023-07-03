@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+    font-family: Georgia;
+    background-color: #222629;
+    color: #f6f6f5;
+}
+
+.signup-form {
+    background-color: #f6f6f5;
+    color: #222629;
+    width: 50%;
+    margin: auto;
+    padding: 1em 2em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-label {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+.signup-submit {
+    background-color: #222629;
+    color: #f6f6f5;
+    font-family: Georgia;
+    font-size: 1.2rem;
+    padding: 0.4em 1em;
+    display: block;
+    margin: 1em auto;
+    border-radius: 5px;
+}
+
+.signup-submit:disabled {
+    background-color: grey;
+}
+
+.signup-input {
+    font-family: Georgia;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    padding: 0.4em 1em;
+}
+
+.sign .invalid {
+    background-color: rgba(245, 119, 119, 0.705);
+}
+
+.valid {
+    background-color: rgba(226, 250, 217, 0.63);
+}

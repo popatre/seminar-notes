@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script src="./signup.js" defer></script>
+  </head>
+  <body>
+    <h1>Cute cat pics</h1>
+    <form
+      method="GET"
+      action="./welcome.html"
+      class="signup-form"
+      id="signup-form"
+    >
+      <!-- Must include at least one number -->
+      <label for="username" class="signup-label">Username:</label>
+      <input
+        id="username"
+        type="text"
+        name="username"
+        class="signup-input"
+        placeholder="Username..."
+      />
+      <p id="username-error"></p>
+
+      <!-- Must only include numbers -->
+      <label for="phonenumber" class="signup-label">Phone number:</label>
+      <input
+        id="phonenumber"
+        type="text"
+        name="phonenumber"
+        class="signup-input"
+        placeholder="071234567..."
+      />
+      <p id="phonenumber-error"></p>
+
+      <button class="signup-submit">Sign up</button>
+    </form>
+  </body>
+</html>
