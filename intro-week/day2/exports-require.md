@@ -1,19 +1,17 @@
 # Guidance
 
-
-
 ### 1. Primitive data types
 
 #### Learning objectives
 
-- Export/require primitive variables
-- Show that the variable in the receiving file is _new_ and can be named differently
+-   Export/require primitive variables
+-   Show that the variable in the receiving file is _new_ and can be named differently
 
 #### Guidance
 
 ## Questions
 
-Intro different files - 
+Intro different files -
 
         Why might we want to have code in different files?
 
@@ -22,34 +20,32 @@ Intro different files -
 ```js
 // file1.js
 
-const myName = 'jonathan';
+const myName = "jonathan";
 module.exports = myName;
 
 // file2.js
 
-const myName = require('./file1.js');
+const myName = require("./file1.js");
 console.log(myName); // get 'philippa'
 ```
 
-2. While things are simple, show that the variable in `file2` is new and does not need to match the variable name in the exporting file. 
+2.  While things are simple, show that the variable in `file2` is new and does not need to match the variable name in the exporting file.
 
         Can ask students to guess what will happen when names are different as many students may assume `undefined` or a ReferenceError.
 
 ```js
 // file1.js
 
-const name = 'philippa';
+const name = "philippa";
 module.exports = name;
 
 // file2.js
 
-const mystery = require('./file1.js');
+const mystery = require("./file1.js");
 console.log(mystery); // still get 'philippa'
 ```
 
 ### 2. Peek under the `module.exports` hood
-
-
 
 1.  What is module.exports? console.log the object
 
@@ -58,37 +54,35 @@ console.log(mystery); // still get 'philippa'
 ```js
 // file1.js
 
-const name = 'philippa';
+const name = "philippa";
 
 // No export statement even though a variable declared
 
 // file2.js
 
-const mystery = require('./file1.js');
+const mystery = require("./file1.js");
 console.log(mystery); // logs {}
 ```
 
 ### 3. Complex data types: objects (or arrays) containing primitive values - Multiple exports
 
-
-
 #### Guidance
 
-1. Sticking with primitive data types initially, ask how we could export multiple things from our file. They may suggest to have multiple `module.exports` lines, one for each variable. Show how this would simply overwrite the previous exports value, referring back to the `module` object and how we are assigning a value to the `exports` property.
+1.  Sticking with primitive data types initially, ask how we could export multiple things from our file. They may suggest to have multiple `module.exports` lines, one for each variable. Show how this would simply overwrite the previous exports value, referring back to the `module` object and how we are assigning a value to the `exports` property.
 
         How can we export more than one thing?
 
 ```js
 // file1.js
 
-const name1 = 'eli';
-const name2 = 'chipie';
+const name1 = "eli";
+const name2 = "chipie";
 module.exports = name1;
 module.exports = name2;
 
 // file2.js
 
-const names = require('./file1.js');
+const names = require("./file1.js");
 console.log(names); // logs 'chipie'
 ```
 
@@ -99,15 +93,15 @@ console.log(names); // logs 'chipie'
 ```js
 // file1.js
 
-const name1 = 'philippa';
-const name2 = 'izzi';
+const name1 = "philippa";
+const name2 = "izzi";
 const multipleNames = { name1: name1, name2: name2 }; // use long-hand syntax for clarity here
 
 module.exports = multipleNames;
 
 // file2.js
 
-const mystery = require('./file1.js');
+const mystery = require("./file1.js");
 console.log(mystery); // logs {name1: 'philippa', name2: 'izzi'}
 
 console.log(mystery.name1); // philippa
@@ -115,7 +109,6 @@ console.log(mystery.name2); // izzi
 ```
 
 ### 4. Exporting functions
-
 
 #### Guidance
 
@@ -125,14 +118,14 @@ console.log(mystery.name2); // izzi
 // file1.js
 
 function turnOffLight() {
-  console.log('light is off');
-};
+    console.log("light is off");
+}
 
 module.exports = turnOffLight;
 
 // file2.js
 
-const lightSwitch = require('./file1.js');
+const lightSwitch = require("./file1.js");
 console.log(lightSwitch); // logs [Function lightSwitch]
 
 // To get the 'hello' console.log, we have to _use_ the required in function - show this too
@@ -146,22 +139,22 @@ console.log(lightSwitch); // logs [Function lightSwitch]
 // file1.js
 
 function turnOffLight() {
-  console.log('light is off');
-};
+    console.log("light is off");
+}
 
 function turnOnLight() {
-  console.log('light is now on');
-};
+    console.log("light is now on");
+}
 
 module.exports = { turnOnLight: turnOnLight, turnOffLight: turnOffLight };
 
 // file2.js
 
-const mystery = require('./file1.js');
+const mystery = require("./file1.js");
 console.log(mystery); // logs {sayHello: [Function sayHello], sayGoodbye: [Function sayGoodbye] }
 ```
 
-3. Show can you can use short-hand when declaring objects if you want the new key to be the same as the variable name. Mention that this is not unique to exporting and can be used anywhere that an object is declared. (_Unless they are very strong, leave object destructuring for another day_)
+3.  Show can you can use short-hand when declaring objects if you want the new key to be the same as the variable name. Mention that this is not unique to exporting and can be used anywhere that an object is declared. (_Unless they are very strong, leave object destructuring for another day_)
 
         Shorthand for objects
 
@@ -169,11 +162,11 @@ console.log(mystery); // logs {sayHello: [Function sayHello], sayGoodbye: [Funct
 // file1.js
 
 const sayHello = function () {
-  console.log('hello');
+    console.log("hello");
 };
 
 sayGoodbye = function () {
-  console.log('goodbye');
+    console.log("goodbye");
 };
 
 module.exports = { sayHello, sayGoodbye };
@@ -184,9 +177,9 @@ module.exports = { sayHello, sayGoodbye };
 ```js
 // file-1.js
 
-console.log('hello in file 1!');
+console.log("hello in file 1!");
 
 // file-2.js
 
-require('./file-2.js');
+require("./file-2.js");
 ```
