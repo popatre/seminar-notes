@@ -1,5 +1,7 @@
 # Seminar Overview
 
+EXCALIDRAW ->>>>>>> https://drive.google.com/drive/folders/1-3TVS12oIVqTNQYeXgULI4YbJUCW6iPA?usp=drive_link
+
 The lecture will introduce the OOP paradigm, factory function pattern and the `this` keyword. This goal of this seminar is to apply these principles to create a factory function with TDD whilst re-enforcing the `arrange`, `act`, `assert` testing pattern.
 
 # Seminar Outline

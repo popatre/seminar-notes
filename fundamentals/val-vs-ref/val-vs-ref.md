@@ -1,5 +1,7 @@
 # Seminar Overview
 
+ARTICLE: https://www.contino.io/insights/test-driven-development
+
 This seminar covers how to approach writing tests for function purity. There are 2 main things to consider,
 
 1. How can we use jest to test for mutation of nested objects (e.g. array containing many objects).
