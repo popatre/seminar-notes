@@ -4,6 +4,8 @@
 
 ### paired - section 5- advanced - Q8 || Q9
 
+hello
+
 ```
 function containsNoRepeats(str) {
   // This function should take a string as its argument and return true if each character appears only once and false otherwise
