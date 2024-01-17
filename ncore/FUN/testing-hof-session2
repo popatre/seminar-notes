@@ -1,0 +1,95 @@
+# Session 2 - Testing HOF
+
+Session plan - https://docs.google.com/document/d/1lWiFyEY6KRgg4_8k-utZTjPldRHMKqsycC8qK4dl3N4/edit
+
+```js
+function pickBy(predicate, obj) {
+    const pickedObj = {};
+    for (const key in obj) {
+        const value = obj[key];
+        if (predicate(value, key)) {
+            pickedObj[key] = value;
+        }
+    }
+
+    return pickedObj;
+}
+
+module.exports = pickBy;
+```
+
+## Test 1
+
+```js
+test("should return empty object when passed empty object", () => {
+    const predicate = () => {};
+    const inputObj = {};
+
+    const actual = pickBy(predicate, inputObj);
+
+    expect(actual).toEqual({});
+});
+```
+
+## Test 2
+
+```js
+test("should return a new object", () => {
+    const predicate = () => {};
+    const inputObj = { A: 1 };
+
+    const actual = pickBy(predicate, inputObj);
+
+    expect(actual).not.toBe(inputObj);
+});
+```
+
+## Test 3
+
+```js
+test("should invoke predicate with correct values for single value object", () => {
+    const predicate = jest.fn();
+    const inputObj = { A: true };
+
+    pickBy(predicate, inputObj);
+
+    expect(predicate).toHaveBeenCalledTimes(1);
+    expect(predicate).toHaveBeenCalledWith(true, "A");
+});
+```
+
+## Test 4
+
+```js
+test("should invoke predicate with correct values for object with multiple values", () => {
+    const predicate = jest.fn();
+    const inputObj = { A: true, B: false };
+
+    pickBy(predicate, inputObj);
+
+    expect(predicate).toHaveBeenCalledTimes(2);
+    expect(predicate).toHaveBeenCalledWith(true, "A");
+    expect(predicate).toHaveBeenCalledWith(false, "B");
+});
+```
+
+## Test 5
+
+```js
+test("should return object with keys/values that satisfy predicate", () => {
+    const pred = (val, key) => {
+        return val < 9;
+    };
+    // const predicate = jest.fn(pred);
+    const inputObj = { A: 1, B: 4, C: 10 };
+
+    const actual = pickBy(pred, inputObj);
+
+    // expect(predicate).toHaveBeenCalledTimes(3);
+    // expect(predicate).toHaveBeenCalledWith(1, "A");
+    // expect(predicate).toHaveBeenCalledWith(4, "B");
+    // expect(predicate).toHaveBeenCalledWith(10, "C");
+
+    expect(actual).toEqual({ A: 1, B: 4 });
+});
+```
