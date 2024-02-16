@@ -5,7 +5,6 @@
 ```sql
 DROP DATABASE IF EXISTS imdb_2;
 CREATE DATABASE imdb_2;
-
 ```
 
 ## Part 2
@@ -46,7 +45,7 @@ INSERT INTO films (title, director_name, release_date, rating) VALUES
     ('Barbie', 'Greta Gerwig', '2023-07-21', 8),
     ('The Room', 'Tommy Wiseau', '2003-06-27', 2);
 
-    RETURNING *q
+    RETURNING *
 ```
 
 ## Part 4
